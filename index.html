@@ -4,325 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Anniversary!</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Garamond&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: 'Garamond', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
             background: linear-gradient(to bottom right, #ff9a8b, #ff6f61);
-            color: #333;
-            text-align: center;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            transition: background 1s ease-in-out;
             position: relative;
-            padding: 50px 20px;
         }
 
-        /* Banner */
-        .banner {
-            font-size: 3em;
-            font-weight: bold;
-            color: #fff;
-            background: rgba(255, 105, 180, 0.9);
-            padding: 20px 40px;
-            border-radius: 20px;
-            margin-bottom: 50px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            animation: pulse 3s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-            }
-        }
-
-        /* Main Content Container */
         .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto 50px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 5vh;
+            box-sizing: border-box;
         }
 
         .wordart {
+            font-size: 8vw;
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5em;
+            font-weight: bold;
             color: #ff1493;
-            text-shadow: 2px 2px #ff69b4;
-            margin-bottom: 30px;
+            text-shadow: 3px 3px #ff69b4;
+            margin-bottom: 5vh;
         }
 
         .quote {
-            font-size: 1.5em;
+            font-size: 5vw;
             font-style: italic;
             color: #800000;
-            line-height: 1.5;
+            margin-bottom: 5vh;
         }
 
-        /* Timer */
         .timer-container {
+            padding: 10px;
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 30px;
             border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: inline-block;
-            margin-bottom: 50px;
+            box-sizing: border-box;
+            margin-bottom: 5vh;
+            width: 80%;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .timer-title {
+            font-size: 6vw;
+            color: #ffffff;
+            margin-bottom: 1vh;
         }
 
         .timer {
-            font-size: 2em;
+            font-size: 6vw;
             color: #00ff00;
             font-family: 'Courier New', Courier, monospace;
             letter-spacing: 2px;
+            word-wrap: break-word;
+            text-align: center;
+            margin: 0 auto;
         }
 
-        /* Confetti */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #ff69b4;
-            opacity: 0.8;
-            top: -10px;
-            animation: confetti-fall 5s linear infinite;
-            z-index: 0;
+        .banner {
+            font-size: 10vw;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(255, 105, 180, 0.8);
+            padding: 2vw 5vw;
+            border-radius: 20px;
+            margin-bottom: 5vh;
+            text-align: center;
         }
 
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        /* Hearts */
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #ff1493;
-            transform: rotate(45deg);
-            top: 100%;
-            animation: heart-float 7s ease-in-out infinite;
-            opacity: 0.8;
-        }
-
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #ff1493;
-            border-radius: 50%;
-        }
-
-        .heart::before {
-            top: -10px;
-            left: 0;
-        }
-
-        .heart::after {
-            left: -10px;
-            top: 0;
-        }
-
-        @keyframes heart-float {
-            0% {
-                transform: translateY(0) rotate(45deg) scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(45deg) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        /* Fireworks */
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: #fff;
-            animation: firework-explode 1s ease-out forwards;
-            pointer-events: none;
-        }
-
-        @keyframes firework-explode {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(3);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 600px) {
-            .banner {
-                font-size: 2em;
-                padding: 15px 30px;
-            }
-
+        @media (max-width: 768px) {
             .container {
-                padding: 30px;
+                padding: 15px;
             }
 
             .wordart {
-                font-size: 2em;
+                font-size: 10vw;
             }
 
             .quote {
-                font-size: 1.2em;
+                font-size: 6vw;
+            }
+
+            .banner {
+                font-size: 12vw;
             }
 
             .timer-container {
-                padding: 15px 20px;
+                margin-top: 3vh;
+            }
+
+            .timer-title {
+                font-size: 7vw;
             }
 
             .timer {
-                font-size: 1.5em;
+                font-size: 8vw;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Banner -->
     <div class="banner">Happy 14th Anniversary!</div>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="wordart">Happy Anniversary Dear Parents!</div>
         <div class="quote">
-            14 Jahre des Zusammenseins, und jeder Moment war eine wunderschöne Reise voll Liebe, Freude und wertvollen Erinnerungen.
-            Möge das Band zwischen euch mit jedem Tag stärker werden.
+            14 Jahre des Zusammenseins, und jeder Moment war eine wunderschöne Reise voll Liebe, Freude und voller wertvollen Erinnerungen. 
+            So soll das Band zwischen euch mit jedem Tag stärker werden.
             Alles Gute zum Jahrestag! ❤️
             <br><br>Von eurer Tochter Ive
         </div>
     </div>
 
-    <!-- Timer -->
     <div class="timer-container">
-        <h3>für den Jahrestag</h3><br>
-        <div class="timer" id="timer">
-            
-        </div>
+        <div class="timer-title">für den Jahrestag</div>
+        <div class="timer" id="timer"></div>
     </div>
 
-    <!-- Scripts -->
     <script>
-        /* Timer Function */
         function updateTimer() {
             const anniversaryDate = new Date('2010-09-01T00:00:00+02:00');
             const now = new Date();
-            const elapsed = now - anniversaryDate;
+            const germanTime = now.toLocaleString('de-DE', { timeZone: 'Europe/Berlin' });
+            const elapsed = new Date(germanTime) - anniversaryDate;
 
-            const years = Math.floor(elapsed / (1000 * 60 * 60 * 24 * 365.25));
-            const days = Math.floor((elapsed % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
             const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
 
-            document.getElementById('timer').textContent =
-                `${years} Jahre ${days} Tage ${hours} Stunden ${minutes} Minuten ${seconds} Sekunden`;
+            document.getElementById('timer').textContent = 
+                `${days} Tage ${hours} Stunden ${minutes} Minuten ${seconds} Sekunden`;
         }
 
         setInterval(updateTimer, 1000);
-        updateTimer();
-
-        /* Confetti Function */
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            document.body.appendChild(confetti);
-
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-
-            setTimeout(() => {
-                confetti.remove();
-            }, 5000);
-        }
-
-        /* Heart Function */
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            document.body.appendChild(heart);
-
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 5 + 's';
-            heart.style.opacity = Math.random() * 0.5 + 0.5;
-
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
-
-        /* Firework Function */
-        function createFirework(x, y) {
-            for (let i = 0; i < 30; i++) {
-                const firework = document.createElement('div');
-                firework.classList.add('firework');
-                document.body.appendChild(firework);
-
-                const angle = Math.random() * 2 * Math.PI;
-                const radius = Math.random() * 100;
-                const dx = Math.cos(angle) * radius;
-                const dy = Math.sin(angle) * radius;
-
-                firework.style.left = x + 'px';
-                firework.style.top = y + 'px';
-                firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-
-                firework.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
-                firework.style.animationDelay = Math.random() * 0.2 + 's';
-
-                setTimeout(() => {
-                    firework.remove();
-                }, 1000);
-            }
-        }
-
-        /* Event Listeners */
-        setInterval(createConfetti, 200);
-        setInterval(createHeart, 500);
-
-        document.body.addEventListener('click', (e) => {
-            createFirework(e.clientX, e.clientY);
-        });
+        updateTimer();  // Initial call to display the timer immediately
     </script>
 </body>
 </html>
