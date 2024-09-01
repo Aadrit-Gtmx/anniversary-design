@@ -14,9 +14,10 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
+            max-height: 120vh; /* Allow slight scrolling */
             color: #333;
             text-align: center;
-            overflow: hidden; /* Prevent scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
             background: linear-gradient(to bottom right, #ff9a8b, #ff6f61);
             transition: background 1s ease-in-out;
             position: relative; /* For positioning confetti and hearts */
@@ -32,6 +33,7 @@
             position: relative;
             z-index: 1;
             box-sizing: border-box;
+            margin-bottom: 5vh; /* Add margin to allow some scrolling */
         }
 
         .wordart {
@@ -63,16 +65,16 @@
         }
 
         .timer {
-            font-size: 6vw; /* Adjust font size to fit container */
+            font-size: 6vw;
             color: #00ff00;
             font-family: 'Courier New', Courier, monospace;
             letter-spacing: 2px;
-            white-space: normal; /* Allow text to wrap */
-            overflow-wrap: break-word; /* Break words to prevent overflow */
-            word-wrap: break-word; /* For older browsers */
-            text-align: center; /* Center text */
+            white-space: normal;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            text-align: center;
             margin: 0 auto;
-            width: 100%; /* Ensure it fits within the container */
+            width: 100%;
         }
 
         .banner {
@@ -223,11 +225,8 @@
                 confetti.style.left = Math.random() * 100 + 'vw';
                 confetti.style.top = Math.random() * 100 + 'vh';
                 confetti.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
-                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
 
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
+                setTimeout(() => confetti.remove(), 10000);
             }
         }
 
@@ -237,42 +236,26 @@
                 heart.classList.add('heart');
                 document.body.appendChild(heart);
 
-                const size = Math.random() * 20 + 10 + 'px';
-                heart.style.width = size;
-                heart.style.height = size;
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
-                heart.style.animationDuration = Math.random() * 5 + 5 + 's';
 
-                setTimeout(() => {
-                    heart.remove();
-                }, 7000);
+                setTimeout(() => heart.remove(), 10000);
             }
         }
 
         function createBalloon() {
-            if (document.querySelectorAll('.balloon').length < 20) {
-                const balloon = document.createElement('div');
-                balloon.classList.add('balloon');
-                document.body.appendChild(balloon);
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            document.body.appendChild(balloon);
 
-                const size = Math.random() * 30 + 30 + 'px';
-                balloon.style.width = size;
-                balloon.style.height = size;
-                balloon.style.left = Math.random() * 100 + 'vw';
-                balloon.style.top = Math.random() * 100 + 'vh';
-                balloon.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
-                balloon.style.animationDuration = Math.random() * 5 + 4 + 's';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.top = Math.random() * 100 + 'vh';
 
-                setTimeout(() => {
-                    balloon.remove();
-                }, 6000);
-            }
+            setTimeout(() => balloon.remove(), 10000);
         }
 
         function createFirework(x, y) {
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 100; i++) {
                 const firework = document.createElement('div');
                 firework.classList.add('firework');
                 document.body.appendChild(firework);
